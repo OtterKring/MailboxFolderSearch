@@ -3,7 +3,7 @@ A powershell module to assist creating targeted Compliance Content Search in Exc
 
 ## Theory
 
-Exchange online does not support the old New-MailboxExportRequest and and New-MailboxImportRequest commandlets from Exchange on-premises anymore. The only official way to export and import mail data in Exchange Online is Outlook, which is extremely slow and more or less impossible to automate.
+Exchange online does not support the old `New-MailboxExportRequest` and and `New-MailboxImportRequest` commandlets from Exchange on-premises anymore. The only official way to export and import mail data in Exchange Online is Outlook, which is extremely slow and more or less impossible to automate.
 While we cannot work around the import with Outlook (except for moving the mailbox down to on-prem, if you still have an on-prem Exchange server, import and then move it back to the cloud), there is a way to speed up the export: Compliance Content Search
 
 However, while ContentSearch is extremely fast for huge amounts of data, the more you want to narrow down the search the more complicated it gets.
@@ -16,9 +16,13 @@ ContentSearch by default searches the complete mailbox. If you want to narrow it
 
 **Example:**
 The folder id of an inbox might look like this according to `Get-MailboxFolderStatistics`:
-`FolderId : LgAAAABXV5oAt1XLR5mKDMdf/8tYAQA8g0kJjzXVTZlomtyxaMeJAAsEdkKpAAAB`
+```
+FolderId : LgAAAABXV5oAt1XLR5mKDMdf/8tYAQA8g0kJjzXVTZlomtyxaMeJAAsEdkKpAAAB
+```
 ContentSearch requires it like this:
-`FolderQuery : folderid:3C8349098F35E54D99689ADCB168C789000B047642A90000`
+```
+FolderQuery : folderid:3C8349098F35E54D99689ADCB168C789000B047642A90000
+```
 _Note:_ the prefix folderid: is a keyword for KQL, not part of the hex-id.
 
 While this might create some mixed feelings at the first glance, it has one big advantage: you can target folders in the mailbox's archive the same way! And to target more than one folder, simply concatenate the folder queries with a capitalized OR.
