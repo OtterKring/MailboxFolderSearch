@@ -77,7 +77,7 @@ Get-EXOMailboxFolderStatistics mc@fly.com | Where-Object FolderType -eq 'User Cr
 * `Get-EXOMailboxFolderStatistics` (the ..EXO.. is the new graph based command, but works the same way as the old one without EXO) queries the folders from my mailbox (NOT the archive! This would requires a separate call using the `-Archive` parameter!)
 * `Where-Objectfilters` for all folders of type "User Created", which are basically all mail folders excluding Inbox, plus a couple of contact folders
 * `Convert-FolderIdToFolderQueryId` converts the folderids returned by `...FolderStatics` to the hex ids needed for the query
-* `New-MFSComplianceSearchQuerycreates` the query string for KQL
+* `New-MFSComplianceSearchQuery` creates the query string for KQL
 * `New-ComplianceSearch` does not allow pipelining, so using a foreach-object we create the Compliance Search
 
 ### Exporting
