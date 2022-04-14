@@ -1,5 +1,5 @@
 # Module: MailboxFolderSearch
-A powershell module to assist creating targeted Compliance Content Search in Exchange Online mailboxes
+A powershell module to assist creating targeted Compliance Content Search in Exchange Online mailboxes; Special purpose: Export mailbox archives from Exchange Online.
 
 ## Theory
 
