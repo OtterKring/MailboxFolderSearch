@@ -321,7 +321,7 @@ function Start-MFSComplianceSearch {
 
     if (!$Interactive) {
         Write-Information 'Creating search query'
-        $Query = $MbxFolders, $ArcFolders | Where-Object FolderId | Convert-FolderIdToFolderQueryId | New-MFSComplianceSearchQuery
+        $Query = $MbxFolders + $ArcFolders | Where-Object FolderId | Convert-FolderIdToFolderQueryId | New-MFSComplianceSearchQuery
 
     # if Interactive was chosen, we change the retrieved objects so a user can distinguish between Mailbox and Archive folders
     # as well as only being presented the most necessary folder information
