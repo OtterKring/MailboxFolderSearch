@@ -72,7 +72,7 @@ Please check the functions help for details and additional parameters.
 
 ### I want more control
 ```
-Get-EXOMailboxFolderStatistics mc@fly.com | Where-Object FolderType -eq 'User Created' | Convert-FolderIdToFolderQueryId | New-ComplianceSearchMailboxFolderQuery | Foreach-Object { New-ComplianceSearch -Name 'PSSearch mc@fly.com 20220411-112234' -ExchangeLocation 'mc@fly.com' -ContentMatchQuery $_}
+Get-EXOMailboxFolderStatistics mc@fly.com | Where-Object FolderType -eq 'User Created' | Convert-FolderIdToFolderQueryId | New-MFSComplianceSearchrQuery | Foreach-Object { New-ComplianceSearch -Name 'PSSearch mc@fly.com 20220411-112234' -ExchangeLocation 'mc@fly.com' -ContentMatchQuery $_}
 ```
 * `Get-EXOMailboxFolderStatistics` (the ..EXO.. is the new graph based command, but works the same way as the old one without EXO) queries the folders from my mailbox (NOT the archive! This would requires a separate call using the `-Archive` parameter!)
 * `Where-Objectfilters` for all folders of type "User Created", which are basically all mail folders excluding Inbox, plus a couple of contact folders
